@@ -11,12 +11,12 @@ const profileCardStyle = {
     gap: '15px',
     alignItems: 'center',
   };
-  
+
 export function ProfileComp() {
     return (
       <div style={profileCardStyle}>
         <img
-          src={pfp}
+          src={"https://codingweek.org/wp-content/uploads/2023/09/chris-ried-ieic5Tq8YMk-unsplash-scaled.jpg"}
           style={{
             width: 100,
             height: 100,
