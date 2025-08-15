@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 import pfp from './pfp.png';
 
@@ -9,16 +9,24 @@ import { ProfileComp } from './Profile';
 function App() {
   return (
     <div style={appContainerStyle}>
-      <ProfileComp/>
-      <OnClickMessage/>  
-      <PostComponent
-        name={"anay"}
-        subtitle={"130M folllowers"}
-        time={"2m ago"}
-        description={"bla abiocweonvoewbvwnjdsnvcjw nivewi jidiwqn "}
-      />
+      <button onClick={addPost}>Add Post</button>
+      <div style={{display : "flex" , justifyContent : "center"}}>
+        <div>
+          <PostComponent
+            name={"anay"}
+            subtitle={"20 followers"}
+            time={"3mins ago"}
+            description={"nvewnvwnvkjnjvd iovewnvoiwenv nic ih"}
+            image={"https://codingweek.org/wp-content/uploads/2023/09/chris-ried-ieic5Tq8YMk-unsplash-scaled.jpg"}
+          />
+        </div>
+      </div>
     </div>
   );
+}
+
+function addPost() {
+  
 }
 
 // ------------------- STYLES -------------------
@@ -37,7 +45,7 @@ const appContainerStyle = {
 // ------------------- COMPONENTS -------------------
 
 const OnClickMessage = () => {
-  const [notification , setNotification] = useState(0); 
+  const [notification , setNotification] = useState(0);
 
   return(
     <div>
@@ -46,7 +54,7 @@ const OnClickMessage = () => {
       }}>Hit Message</button>
       {notification}
     </div>
-  ) 
+  )
 }
 
 export default App;
