@@ -1,32 +1,42 @@
 import { useState } from 'react';
 import './App.css';
-import pfp from './pfp.png';
 
 import { PostComponent} from './Post';
 import { ProfileComp } from './Profile';
 
 // ------------------- APP -------------------
 function App() {
+  
+  const [posts , setState] = useState([] )
+
+  const postComp = posts.map(post => <PostComponent
+    name={post.name}
+    subtitle={post.subtitle}
+    time={post.time}
+    image={post.image}
+    description={post.description}
+  />)
+  
+  function addPost() {
+     setState([...posts , {
+        name : "Anay" , 
+        subtitle : "10000 Followers" , 
+        time : "2 mins ago" , 
+        image : "https://codingweek.org/wp-content/uploads/2023/09/chris-ried-ieic5Tq8YMk-unsplash-scaled.jpg", 
+        description : "idk what i wanna write so blah blah blah blah"
+     }])
+  }
+
   return (
     <div style={appContainerStyle}>
       <button onClick={addPost}>Add Post</button>
       <div style={{display : "flex" , justifyContent : "center"}}>
         <div>
-          <PostComponent
-            name={"anay"}
-            subtitle={"20 followers"}
-            time={"3mins ago"}
-            description={"nvewnvwnvkjnjvd iovewnvoiwenv nic ih"}
-            image={"https://codingweek.org/wp-content/uploads/2023/09/chris-ried-ieic5Tq8YMk-unsplash-scaled.jpg"}
-          />
+          {postComp}
         </div>
       </div>
     </div>
   );
-}
-
-function addPost() {
-  
 }
 
 // ------------------- STYLES -------------------
